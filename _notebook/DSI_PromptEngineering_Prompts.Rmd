@@ -1,0 +1,375 @@
+---
+title: Uvod u veštačku inteligenciju (AI) i prompt inženjering
+author:
+- name: Dr Goran S. Milovanović
+  affiliation: Smartocto, Lead Data Scientist; DataKolektiv, Owner; MACHINERY, President
+abstract: 
+output:
+  html_notebook:
+    code_folding: show
+    theme: spacelab
+    toc: yes
+    toc_float: yes
+    toc_depth: 5
+  html_document:
+    toc: yes
+    toc_depth: 5
+---
+
+
+![](_img/GoranSMilovanovic.jpeg)
+
+![](_img/DK_logo_horizontal.png)
+
+![](_img/MASINERIJA_500px.png)
+
+
+
+
+***
+**Fidbek i pitanja** slati na `goran.milovanovic@datakolektiv.com`. 
+
+***
+
+### Šta želimo da uradimo danas?
+
+Ovaj kurs pokriva bazične konceptualne osnove sistema generativne veštačke inteligencije i velikih jezičkih modela. Učesnici će sticati razumevanje osnovnih koncepta i upustiti se u tehnike prompt inženjeringa. 
+
+Za praksu, pružamo primere korišćenjem ChatGPT-a kompanije OpenAI, specifično modela `gpt-3.5-turbo` i `gpt-4`. Kurs će biti zaključen kratkim pregledom kako pristupiti i koristiti GPT sisteme programski preko OpenAI API-ja u programskom jeziku Python.
+
+Ova sveska se fokusira na tehnike **prompt inženjeringa**.
+
+### 0. Preduslovi
+
+Nijedan. Možete pristupiti [ChatGPT-u](https://chat.openai.com/). Ne bi bilo loše ako biste imali pretplatu na [ChatGPT Plus](https://openai.com/blog/chatgpt-plus).
+
+### 1. Zero-Shot Prompt
+
+U `Zero-Shot Prompt` nisu pružene nikakve pozadinske informacije modelu, od njega se traži da odgovori najbolje što može samo na osnovu svog prethodnog treninga i ništa više.
+
+`Zero-Shot Prompt` je specifična vrsta instrukcije ili prompta data velikom jezičkom modelu bez ikakvog prethodnog treninga ili primera datih za taj konkretni zadatak. 
+
+```{echo=TRUE}
+Question: Is the following sentence an interrogative or not?
+Sentence: My cat is on the roof.
+```
+
+> The sentence "My cat is on the roof." is not an interrogative sentence. It is a declarative sentence because it makes a statement about the cat's location rather than asking a question. Interrogative sentences are used to ask questions and typically start with words like "who," "what," "where," "when," "why," or "how."
+
+```{echo=TRUE}
+Question: Is the following sentence an interrogative or not?
+Sentence: Is my cat on the roof?
+```
+
+> Yes, the sentence "Is my cat on the roof?" is an interrogative sentence. Interrogative sentences are used to ask questions and seek information. In this case, the sentence is asking a question to find out whether the cat is on the roof or not.
+
+### 2. Few-Shot Prompting
+
+Kada se pružaju pozadinske informacije i/ili primeri. To je često neophodno.
+
+`Few-Shot Prompting` ("prompt sa malim brojem primera") je metod koji se koristi sa jezičkim modelima poput ChatGPT za izvršavanje specifičnih zadataka ili generisanje sadržaja sa minimalnim brojem primera za obuku ili nekim minimalnim kontekstom. Nalazi se negde između `Zero-Shot Prompt`  (koje ne zahteva specifične primere za zadatak) i fino podešene obuke (`fine-tuning`, gde je model opsežno treniran na određenom zadatku). U promptu sa malim brojem primera pružate mali broj primera ili instrukcija vezanih za zadatak koji želite da model izvrši, tipično samo nekoliko rečenica ili upita.
+
+Hajde da počnemo sa podsticajem bez prethodnih primeraka:
+
+```{echo=TRUE}
+Šta na srpskom jeziku znači 'ošajdariti'
+```
+
+> Izvinjavam se, ali ne mogu da pronađem značenje reči "ošajdariti" na srpskom jeziku u mom postojećem rečniku. Moguće je da se radi o lokalnom ili slengu izražavanju koje nije uobičajeno ili šire poznato. Ako imate dodatne informacije o kontekstu ili rečenici u kojoj se koristi ova reč, možda ću moći da vam bolje pomognem da razumete njen značaj.
+
+```{echo=TRUE}
+Šta na srpskom jeziku znači 'ošajdariti'
+```
+
+Da li bi ovo mogla da bude halucinacija?
+
+["'ошајдарити' in Wiktionary"](https://sr.wiktionary.org/sr-ec/%D0%BE%D1%88%D0%B0%D1%98%D0%B4%D0%B0%D1%80%D0%B8%D1%82%D0%B8)
+
+Sad `One-Shot Prompt`:
+
+```{echo=TRUE}
+Reč 'ošajdariti' na srpskom jeziku znači 'udariti', i uglavnom se odnosi na 'udariti neku osobu'.
+Daj primer rečenice u kojoj se koristi reč 'ošajdariti'.
+```
+
+> Hvala na dodatnim informacijama. Reč "ošajdariti" znači "udariti", posebno kada se odnosi na udaranje neke osobe. Evo primera rečenice u kojoj se koristi:
+"Kada je čuo uvredu na svoj račun, izgubio je strpljenje i ošajdario je suparnika pesnicom."
+U ovom kontekstu, "ošajdariti" se koristi za opisivanje fizičkog udarca ili napada na drugu osobu.
+
+```{echo=TRUE}
+Napravi pet rečenica u kojima se koristi reč 'ošajdariti'.
+```
+
+> Naravno, evo pet rečenica u kojima se koristi reč "ošajdariti":
+Nakon duge svađe, Bob nije mogao da se suzdrži i ošajdario je svoj sto pesnicom.
+U igri se dečko toliko iznervirao da je ošajdario lopticu preko ograde.
+Svedoci su ispričali kako je agresivni vozač ošajdario drugog vozača kada su se zaustavili na semaforu.
+Tokom tuče u školskom dvorištu, učitelj je uspeo da spreči jednog učenika da ošajdari drugog.
+Njegova nestrpljivost je dostigla vrhunac, pa je ošajdario zid šakom, izazvavši bol u ruci.
+
+`Few-Shot Prompt`:
+
+```{echo=TRUE}
+Reč 'ošajdariti' na srpskom jeziku znači 'udariti'.
+Primer upotrebe reči 'ošajdariti' je sledeća rečenica: 
+'Kázo sam mu da zàpuši ústa, a ȏn lȁje li lȁje, a mѐne kad je 
+prekípilo, a nísam dȕgo čȅko, pa kad sam ga ošàjdario, ȍma se stroválio nȁ zemlju.'
+Daj primer rečenice u kojoj se koristi reč 'ošajdariti'.
+```
+
+> Naravno, evo primer rečenice:
+"Marko je pokušao da otme loptu od Petra, ali Petar ga je brzo ošajdario i nastavio da igra."
+
+### 3. Chain-of-Thought (CoT) Prompt
+
+Prompt lancem razmišljanja (`CoT`) je tehnika koja ohrabruje veliki jezički Model (LLM) da objasni svoj "proces razmišljanja". Centralni koncept iza CoT-a je ideja da kada se LLM-u problem predstavi sa sa malim skupom primera koji objašnjavaju proces razmišljanja, on teži da artikuliše svoj sopstveni "proces razmišljanja" kada odgovara na upite. Ovaj naglasak na objašnjavanju često rezultira preciznijim i tačnijim odgovorima.
+
+Počećemo ponovo sa `Zero-Shot Prompt`:
+
+```{echo=TRUE}
+Petar's mom sent him to the store. 
+Mom gave Petar a thousand dinars and asked him to buy one kilogram of tomatoes and flour. 
+A kilogram of tomatoes cost 200 dinars, and the flour cost 180 dinars. 
+On his way back home, Petar also bought himself an ice cream for 150 dinars. 
+How much money did Petar give back to his mom as change from this purchase?
+```
+
+> To calculate how much money Petar gave back to his mom as change, we need to first determine the total cost of the tomatoes and flour he purchased, as well as the cost of the ice cream. Then, we subtract these costs from the 1000 dinars his mom gave him.
+
+> Cost of 1 kilogram of tomatoes = 200 dinars
+> Cost of flour = 180 dinars
+> Cost of ice cream = 150 dinars
+
+> Now, let's calculate the total cost of tomatoes, flour, and ice cream:
+
+> Total cost = Cost of tomatoes + Cost of flour + Cost of ice cream
+> Total cost = 200 dinars + 180 dinars + 150 dinars
+> Total cost = 530 dinars
+
+> So, Petar spent a total of 530 dinars on his purchases.
+
+> Now, to find out how much money he gave back to his mom as change:
+
+> Change = Amount given by mom - Total cost
+> Change = 1000 dinars - 530 dinars
+> Change = 470 dinars
+
+> Petar gave back 470 dinars to his mom as change.
+
+```{echo=TRUE}
+Petar's mom sent him to the store. 
+Mom gave Petar a thousand dinars and asked him to buy one kilogram of tomatoes and flour. 
+A kilogram of tomatoes cost 200 dinars, and the flour cost 180 dinars. 
+On his way back home, Petar also bought himself an ice cream for 150 dinars. 
+How much money did Petar give back to his mom as change from this purchase?
+Respond with a single number only and nothing else.
+```
+
+> 420
+
+```{echo=TRUE}
+Milan's dad sent him to the store. 
+Dad gave Milan two thousand dinars and asked him to buy a kilogram of oranges and bread. 
+A kilogram of oranges cost 600 dinars, and the bread cost 80 dinars. 
+On his way back home, Milan also bought himself a magazine for 350 dinars. 
+How much money did Milan give back to his dad as change from this purchase?
+Respond with a single number only and nothing else.
+
+The correct answer is: 970.
+
+Petar's mom sent him to the store. 
+Mom gave Petar a thousand dinars and asked him to buy one kilogram of tomatoes and flour. 
+A kilogram of tomatoes cost 200 dinars, and the flour cost 180 dinars. 
+On his way back home, Petar also bought himself an ice cream for 150 dinars. 
+How much money did Petar give back to his mom as change from this purchase?
+Respond with a single number only and nothing else.
+```
+
+> 470
+
+Ponovo `Zero-Shot Prompt`:
+
+```{echo=TRUE}
+Petar's mom sent him to the store. 
+Mom gave Petar a thousand dinars and asked him to buy one kilogram of tomatoes and flour. 
+A kilogram of tomatoes cost 200 dinars, and the flour cost 180 dinars. 
+On his way back home, Petar also bought himself an ice cream for 150 dinars. 
+How much money did Petar give back to his mom as change from this purchase?
+Respond with a single number only and nothing else.
+```
+
+> 420 dinars
+
+`Zero-shot` sa `CoT`, **implicitno**:
+
+```{echo=TRUE}
+Petar's mom sent him to the store. 
+Mom gave Petar a thousand dinars and asked him to buy one kilogram of tomatoes and flour. 
+A kilogram of tomatoes cost 200 dinars, and the flour cost 180 dinars. 
+On his way back home, Petar also bought himself an ice cream for 150 dinars. 
+How much money did Petar give back to his mom as change from this purchase?
+Let's think step by step, but respond with a single number only and nothing else.
+```
+
+> 420
+
+`Zero-shot` sa `CoT`, **eksplicitno**:
+
+```{echo=TRUE}
+Petar's mom sent him to the store. 
+Mom gave Petar a thousand dinars and asked him to buy one kilogram of tomatoes and flour. 
+A kilogram of tomatoes cost 200 dinars, and the flour cost 180 dinars. 
+On his way back home, Petar also bought himself an ice cream for 150 dinars. 
+How much money did Petar give back to his mom as change from this purchase?
+Let's think step by step and exemplify every step in your thinking before responding.
+```
+
+> Sure, let's break down Petar's expenses step by step.
+
+> Step 1: Petar's initial budget
+
+> Petar was given 1000 dinars by his mom.
+
+> Step 2: Buying tomatoes
+
+> A kilogram of tomatoes cost 200 dinars.
+Petar bought one kilogram of tomatoes, so he spent 200 dinars on tomatoes.
+
+> Step 3: Buying flour
+The flour cost 180 dinars.
+Petar bought some flour, so he spent 180 dinars on flour.
+
+> Step 4: Buying ice cream
+> Petar bought himself an ice cream for 150 dinars.
+
+> Now, let's calculate how much money Petar spent in total:
+
+> Total spent = Cost of tomatoes + Cost of flour + Cost of ice cream
+Total spent = 200 dinars + 180 dinars + 150 dinars
+Total spent = 530 dinars
+
+> Step 5: Calculating the change
+> To find out how much money Petar has left after his purchases, we need to subtract the total amount spent from his initial budget:
+
+> Change = Initial budget - Total spent
+Change = 1000 dinars - 530 dinars
+Change = 470 dinars
+
+> So, Petar gave back 470 dinars to his mom as change from his purchases.
+
+### 4. Sažimanje teksta i sheme odgovora
+
+```{echo=TRUE}
+Summarize the following text:
+'Fauvism might have lasted just five years, but this autumn it is back in 
+the limelight with Vertigo of Colour: Matisse, Derain, and the Origins of 
+Fauvism on 13 October at New York's Met, where the Fauves' ground-breaking 
+use of colour takes centre stage; and Matisse by Matisse, the largest ever 
+exhibition on the artist, showing first in Beijing (until 15 October) and 
+then Shanghai. But despite this fervour for Fauvism, art history has not always 
+seen the full picture. Matisse, Derain and Friends: The Paris Avantgarde 1904-1908, 
+which opened at the Kunstmuseum Basel on 2 September, hopes to change this, and is 
+believed to be the first gallery to explore the largely unacknowledged role of 
+women in the movement. "The biggest misunderstanding about women in Fauvism is that 
+there were none," the exhibition's co-curator, Arthur Fink, tells BBC Culture. 
+He gives the example of Émilie Charmy, so much more than Charles Camoin's muse, 
+but "people just actively ignored her work"; and Marie Laurencin, sidelined by art 
+history, but painted by Henri Rousseau, and "clearly part of the aesthetic discourses 
+of the time". And then there's Alice Bailly, Suzanne Valadon, Sonia Delaunay, 
+Gabriele Münter, Marianne Von Werefkin… Who? Quite.'"
+```
+
+> Fauvism, a movement lasting only five years, is being revived this autumn with notable exhibitions at New York's Met and in China featuring works of Matisse and Derain. While there's renewed interest in Fauvism, the full scope of its history is often overlooked. A new exhibit that began on 2 September at the Kunstmuseum Basel aims to rectify this by highlighting the significant yet unrecognized role of women in Fauvism. Co-curator Arthur Fink points out that figures like Émilie Charmy and Marie Laurencin were crucial to the movement but have been largely ignored. The exhibit also mentions other lesser-known female Fauvist artists like Alice Bailly, Suzanne Valadon, Sonia Delaunay, Gabriele Münter, and Marianne Von Werefkin.
+
+Let's try to provide a schema to guide the summarization process
+
+[Source is BBC: How female Fauvists were some of history's most audacious painters](https://www.bbc.com/culture/article/20230912-how-female-fauvists-were-some-of-historys-most-audacious-painters)
+
+```{echo=TRUE}
+Summarize the following text by following this conceptual schema:
+
+### SCHEMA: {main text topic}{important years}{important people}
+
+### TEXT: 
+```
+
+> SCHEMA:
+{Fauvism and its re-emergence in art exhibitions}
+{1904-1908, 13 October, 2 September, 15 October}
+{Matisse, Derain, Émilie Charmy, Charles Camoin, Marie Laurencin, Henri Rousseau, Alice Bailly, Suzanne Valadon, Sonia Delaunay, Gabriele Münter, Marianne Von Werefkin, Arthur Fink}
+
+### 5. Analitički promptovi i struktuirani odgovori
+
+Koristiću sledeći primer: [N1:Federalna policija Argentine u „istorijskoj zapleni“ propagandnog nacističkog materijala](https://n1info.rs/svet/federalna-policija-argentine-u-istorijskoj-zapleni-propagandog-nacistickog-materijala/)
+
+```{echo=TRUE}
+### INSTRUCTIONS
+
+You are a an Natural Language Processing system that does the following:
+
+(1) generates a CSV file of all named entities from a user-provided text in Serbian language;
+(2) puts all recognised entities in the first column of the CSV file, 
+named: ENTITY;
+(3) determines a respective entity type for each recognised entity, 
+always use English language to describe entity type, and puts the entity type in 
+the second column of the CSV file, 
+named: ENTITY_TYPE;
+(4) determines a sentiment score for all recognised entities using the following scale: 
+-3 means "very negative"
+-2 means "negative"
+-1 means "mildly negative"
+0 means "neutral"
++1 means "mildly positive"
++2 means "positive"
++3 means "very positive";
+(5) always uses integer numbers from the scale provided to you for sentiment scores in the CSV file;
+(6) the sentiment scores that it assigns to recognised entities are computed in respect to how entities 
+are presented and treated in the text that is provided to you as an input; 
+it is very important for it to provide sentiment scores for each 
+named entity taking into consideration only how that entity is 
+treated and presented in the input text; 
+(7) puts the sentiment scores in the third column of the CSV file, named: SENTIMENT;
+(8) does not ever use any HTML tags or similar mark-up in the output CSV file.
+
+### TEXT
+
+```
+
+> ENTITY,ENTITY_TYPE,SENTIMENT
+Federalna policija Argentine,Organization,0
+Argentina,Location,0
+San Isidro,Location,0
+Buenos Aires,Location,0
+Carlos Alejandro Njamandu,Person,0
+Pablo Đorđeti,Person,-2
+Mercado Libre,Organization,-2
+Delegacija izraelskih udruženja u Argentini,Organization,1
+DAIA,Organization,1
+Markos Koen,Person,0
+
+### 6. Komponente dobrog prompta
+
+Svaki dobar prompt sadrži sledeće elemente:
+
+- **Instrukcija** - specifičan zadatak ili uputstvo koje želite da model izvrši.
+
+- **Kontekst** - informacije ili dodatni kontekst koji može usmeriti model ka boljim odgovorima.
+
+- **Input** - samo pitanje za koje smo zainteresovani da pronađemo odgovor.
+
+- **Format odgovora** - tip ili format odgovora koji očekujemo od modela.
+
+
+
+***
+Goran S. Milovanović, 2024.
+kontakt: [goran.milovanovic@datakolektiv.com](mailto:goran.milovanovic@datakolektiv.com)
+
+***
+License: [GPLv3](http://www.gnu.org/licenses/gpl-3.0.txt)
+This Notebook is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+This Notebook is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+You should have received a copy of the GNU General Public License along with this Notebook. If not, see <http://www.gnu.org/licenses/>.
+
+***
+
