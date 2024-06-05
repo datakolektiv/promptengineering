@@ -11,7 +11,9 @@
   <img src="_logo/MACHINERY_Logo.png" alt="IDS Logo" width="400">
 </p>
 
-Ovaj kurs veštačke inteligencije i prompt inženjeringa su osmilili i sproveli [DataKolektiv](http://www.datakolektiv.com/app_direct/DataKolektivServer/) i asocijacija profesionalaca [MAŠINERIJA](https://www.linkedin.com/company/machineryorg/) u kooperaciji sa [USAID](https://www.usaid.gov/sr/serbia), [Inicijativa Digitalna Srbija](https://www.dsi.rs/), i projektom [Preduzmi ideju](https://www.preduzmi.rs/).
+<hr>
+
+Ovaj kurs veštačke inteligencije i prompt inženjeringa su osmislili i sproveli [DataKolektiv](http://www.datakolektiv.com/app_direct/DataKolektivServer/) i asocijacija profesionalaca [MAŠINERIJA](https://www.linkedin.com/company/machineryorg/) u kooperaciji sa [USAID](https://www.usaid.gov/sr/serbia), [Inicijativa Digitalna Srbija](https://www.dsi.rs/), i projektom [Preduzmi ideju](https://www.preduzmi.rs/).
 
 Doprinos [DataKolektiv](http://www.datakolektiv.com/app_direct/DataKolektivServer/) i [MAŠINERIJA](https://www.linkedin.com/company/machineryorg/) je volonterski. 
 
@@ -19,7 +21,7 @@ Doprinos [DataKolektiv](http://www.datakolektiv.com/app_direct/DataKolektivServe
 
 ## Video sesije
 
-Kurs je organizovan u četiri video sesije, od kojih je prva uvodna.
+Kurs je organizovan u četiri video sesije, od kojih je prva intro u kome tek predstavljamo kurs. Kliknite na slike ispod da biste pogledali odgovarajuću sesiju na YouTube. Takođe, Inicijativa Digitalna Srbija je postavila [kompletnu plejlistu ovog kursa na YouTube](https://www.youtube.com/playlist?list=PLnd-X8kHeffVWZLQCtDmegHGpTeVVa2Cn).
 
 ### Intro
 
@@ -50,5 +52,3 @@ Kurs je organizovan u četiri video sesije, od kojih je prva uvodna.
 [![Uvod u veštačku inteligenciju (AI) i prompt inženjering - IV deo](_img/pe_video_04.png)](https://www.youtube.com/watch?v=3KgbttlmkjY&list=PLnd-X8kHeffVWZLQCtDmegHGpTeVVa2Cn&index=5)
 
 <hr>
-
-
