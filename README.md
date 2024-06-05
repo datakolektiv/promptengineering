@@ -13,11 +13,19 @@
 
 <hr>
 
-Ovaj kurs veštačke inteligencije i prompt inženjeringa su osmislili i sproveli [DataKolektiv](http://www.datakolektiv.com/app_direct/DataKolektivServer/) i asocijacija profesionalaca [MAŠINERIJA](https://www.linkedin.com/company/machineryorg/) u kooperaciji sa [USAID](https://www.usaid.gov/sr/serbia), [Inicijativa Digitalna Srbija](https://www.dsi.rs/), i projektom [Preduzmi ideju](https://www.preduzmi.rs/). Predavač je [Dr Goran S. Milovanović](https://www.linkedin.com/in/gmilovanovic/), osnivač DataKolektiv i predsednik asocijacije MAŠINERIJA.
+Ovaj kurs veštačke inteligencije i prompt inženjeringa su osmislili i sproveli [DataKolektiv](http://www.datakolektiv.com/app_direct/DataKolektivServer/) i asocijacija profesionalaca [MAŠINERIJA](https://www.linkedin.com/company/machineryorg/) u kooperaciji sa [USAID](https://www.usaid.gov/sr/serbia), [Inicijativa Digitalna Srbija](https://www.dsi.rs/), i projektom [Preduzmi ideju](https://www.preduzmi.rs/).
 
-Doprinos [DataKolektiv](http://www.datakolektiv.com/app_direct/DataKolektivServer/) i [MAŠINERIJA](https://www.linkedin.com/company/machineryorg/) je volonterski. 
+Predavač je [Dr Goran S. Milovanović](https://www.linkedin.com/in/gmilovanovic/), osnivač DataKolektiv i predsednik asocijacije MAŠINERIJA.
+
+Doprinos [DataKolektiv](http://www.datakolektiv.com/app_direct/DataKolektivServer/) i [MAŠINERIJA](https://www.linkedin.com/company/machineryorg/), i Dr Gorana S. Milovanovića je volonterski. 
 
 ## O sadržaju ovog repozitorijuma
+
+U direktorijumu **_slides** nalaze se prezentacije koje je Goran koristio tokom prve i druge sesije kursa, u PDF i PowerPoint formatu.
+
+U direktorijumu **_notebook** nalazi se materijal korišćen u trećoj sesiji, odn. primeri kroz koje se diskutuje prompt inženjering sa ChatGPT. Preporučujemo `html` fajl notebook-a, `.Rmd` fajl je za ljubitelje programskog jezika R - to je R markdown skripta iz koje je notebook renderovan.
+
+U direktijumu **_code** nalazi se Jupyter Notebook sa Python kodom korišćenim u četvrtoj sesiji.
 
 ## Video sesije
 
