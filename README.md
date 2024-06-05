@@ -1,5 +1,9 @@
 # Kurs veštačke inteligencije i prompt inženjeringa
 
+Ovaj kurs veštačke inteligencije i prompt inženjeringa su osmislili i sproveli [DataKolektiv](http://www.datakolektiv.com/app_direct/DataKolektivServer/) i asocijacija profesionalaca [MAŠINERIJA](https://www.linkedin.com/company/machineryorg/) u kooperaciji sa [USAID](https://www.usaid.gov/sr/serbia), [Inicijativa Digitalna Srbija](https://www.dsi.rs/), i projektom [Preduzmi ideju](https://www.preduzmi.rs/).
+
+Predavač je [Dr Goran S. Milovanović](https://www.linkedin.com/in/gmilovanovic/), osnivač DataKolektiv i predsednik asocijacije MAŠINERIJA.
+
 <p align="center">
   <img src="_logo/USAID_Logo.png" alt="USAID Logo" width="250">
   <img src="_logo/IDS-Logo.png" alt="IDS Logo" width="250">
@@ -13,11 +17,7 @@
 
 <hr>
 
-Ovaj kurs veštačke inteligencije i prompt inženjeringa su osmislili i sproveli [DataKolektiv](http://www.datakolektiv.com/app_direct/DataKolektivServer/) i asocijacija profesionalaca [MAŠINERIJA](https://www.linkedin.com/company/machineryorg/) u kooperaciji sa [USAID](https://www.usaid.gov/sr/serbia), [Inicijativa Digitalna Srbija](https://www.dsi.rs/), i projektom [Preduzmi ideju](https://www.preduzmi.rs/).
-
-Predavač je [Dr Goran S. Milovanović](https://www.linkedin.com/in/gmilovanovic/), osnivač DataKolektiv i predsednik asocijacije MAŠINERIJA.
-
-Doprinos [DataKolektiv](http://www.datakolektiv.com/app_direct/DataKolektivServer/) i [MAŠINERIJA](https://www.linkedin.com/company/machineryorg/), i Dr Gorana S. Milovanovića je volonterski. 
+Doprinos [DataKolektiv](http://www.datakolektiv.com/app_direct/DataKolektivServer/), [MAŠINERIJA](https://www.linkedin.com/company/machineryorg/), i Dr Gorana S. Milovanovića je volonterski. 
 
 ## O sadržaju ovog repozitorijuma
 
