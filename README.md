@@ -70,3 +70,7 @@ U četvrtoj sesiji učimo osnove rada sa OpenAI API, odn. načinom da iz program
 [![Uvod u veštačku inteligenciju (AI) i prompt inženjering - IV deo](_img/pe_video_04.png)](https://www.youtube.com/watch?v=3KgbttlmkjY&list=PLnd-X8kHeffVWZLQCtDmegHGpTeVVa2Cn&index=5)
 
 <hr>
+
+[GPL-3.0 licenca](https://www.gnu.org/licenses/gpl-3.0.html) koju koristi ovaj GitHub repozitorijum se odnosi na sve osim na logotipe USAID, Inicijative Digitalna Srbija projekta Preduzmi ideju, MAŠINERIJA, i DataKolektiv.
+
+<hr>
