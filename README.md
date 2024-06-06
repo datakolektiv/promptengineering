@@ -11,8 +11,8 @@ Predavač je [Dr Goran S. Milovanović](https://www.linkedin.com/in/gmilovanovic
 </p>
 
 <p align="center">
-  <img src="_logo/DK_Logo.png" alt="USAID Logo" width="250">
-  <img src="_logo/MACHINERY_Logo.png" alt="IDS Logo" width="400">
+  <img src="_logo/DK_Logo.png" alt="USAID Logo" width="175">
+  <img src="_logo/MACHINERY_Logo.png" alt="IDS Logo" width="300">
 </p>
 
 <hr>
