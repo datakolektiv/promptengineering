@@ -21,11 +21,11 @@ Doprinos [DataKolektiv](http://www.datakolektiv.com/app_direct/DataKolektivServe
 
 ## O sadržaju ovog repozitorijuma
 
-U direktorijumu **_slides** nalaze se prezentacije koje je Goran koristio tokom prve i druge sesije kursa, u PDF i PowerPoint formatu.
+U direktorijumu **[_slides](https://github.com/datakolektiv/promptengineering/tree/main/_slides)** nalaze se prezentacije koje je Goran koristio tokom prve i druge sesije kursa, u PDF i PowerPoint formatu.
 
-U direktorijumu **_notebook** nalazi se materijal korišćen u trećoj sesiji, odn. primeri kroz koje se diskutuje prompt inženjering sa ChatGPT. Preporučujemo `html` fajl notebook-a, `.Rmd` fajl je za ljubitelje programskog jezika R - to je R markdown skripta iz koje je notebook renderovan.
+U direktorijumu **[_notebook](https://github.com/datakolektiv/promptengineering/tree/main/_notebook)** nalazi se materijal korišćen u trećoj sesiji, odn. primeri kroz koje se diskutuje prompt inženjering sa ChatGPT. Preporučujemo `html` fajl notebook-a, `.Rmd` fajl je za ljubitelje programskog jezika R - to je R markdown skripta iz koje je notebook renderovan.
 
-U direktijumu **_code** nalazi se Jupyter Notebook sa Python kodom korišćenim u četvrtoj sesiji.
+U direktijumu **[_code](https://github.com/datakolektiv/promptengineering/tree/main/_code)** nalazi se Jupyter Notebook sa Python kodom korišćenim u četvrtoj sesiji.
 
 ## Video sesije
 
