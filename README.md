@@ -9,7 +9,7 @@ Predavač je [Dr Goran S. Milovanović](https://www.linkedin.com/in/gmilovanovic
 </p>
 
 <p align="center">
-  <img src="_logo/logo_strip2.png" width="650">
+  <img src="_logo/logo_strip2.png" width="560">
 </p>
 
 <hr>
