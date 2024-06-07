@@ -5,12 +5,11 @@ Ovaj kurs veštačke inteligencije i prompt inženjeringa su osmislili i sprovel
 Predavač je [Dr Goran S. Milovanović](https://www.linkedin.com/in/gmilovanovic/), osnivač DataKolektiv i predsednik asocijacije MAŠINERIJA.
 
 <p align="center">
-  <img src="_logo/logo_strip.png" width="1200">
+  <img src="_logo/logo_strip.png" width="1000">
 </p>
 
 <p align="center">
-  <img src="_logo/DK_Logo.png" width="250">
-  <img src="_logo/MACHINERY_Logo.png" width="300">
+  <img src="_logo/logo_strip2.png" width="650">
 </p>
 
 <hr>
