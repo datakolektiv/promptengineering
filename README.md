@@ -9,7 +9,7 @@ Predavač je [Dr Goran S. Milovanović](https://www.linkedin.com/in/gmilovanovic
 </p>
 
 <p align="center">
-  <img src="_logo/DK_Logo.png" width="175">
+  <img src="_logo/DK_Logo.png" width="300">
   <img src="_logo/MACHINERY_Logo.png" width="300">
 </p>
 
